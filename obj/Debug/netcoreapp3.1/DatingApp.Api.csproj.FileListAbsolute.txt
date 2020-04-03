@@ -68,3 +68,9 @@
 /home/zenardi/Develop/DatingApp/DatingApp.Api/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /home/zenardi/Develop/DatingApp/DatingApp.Api/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.dll
 /home/zenardi/Develop/DatingApp/DatingApp.Api/bin/Debug/netcoreapp3.1/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/zenardi/Develop/DatingApp/DatingApp.Api/bin/Debug/netcoreapp3.1/Data/UserSeedData.json
+/home/zenardi/Develop/DatingApp/DatingApp.Api/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
+/home/zenardi/Develop/DatingApp/DatingApp.Api/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/home/zenardi/Develop/DatingApp/DatingApp.Api/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll
+/home/zenardi/Develop/DatingApp/DatingApp.Api/bin/Debug/netcoreapp3.1/AutoMapper.dll
+/home/zenardi/Develop/DatingApp/DatingApp.Api/bin/Debug/netcoreapp3.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
