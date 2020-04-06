@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "PA6XTrNKPApGdBZE8EUYlPfdLDl+zguy4ExofgbeaopWKEYnKYwLxWdJYd6teB+TaJQ2guogUQCnfiq434cIBw==",
+  "dgSpecHash": "9vSz66s2xubTYqDDMqLiGVKSLOXG1P74XVfONIEGVv5N4W8MSsI+R9xo6Za2Zrt6q6Ng50UTb/U/FFwlsbXlfw==",
   "success": true,
   "projectFilePath": "/home/zenardi/Develop/DatingApp/DatingApp.Api/DatingApp.Api.csproj",
   "expectedPackageFiles": [
     "/home/zenardi/.nuget/packages/automapper/9.0.0/automapper.9.0.0.nupkg.sha512",
     "/home/zenardi/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/7.0.0/automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
+    "/home/zenardi/.nuget/packages/awssdk.core/3.5.0-beta/awssdk.core.3.5.0-beta.nupkg.sha512",
+    "/home/zenardi/.nuget/packages/awssdk.s3/3.5.0-beta/awssdk.s3.3.5.0-beta.nupkg.sha512",
     "/home/zenardi/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/3.0.0/microsoft.aspnetcore.authentication.jwtbearer.3.0.0.nupkg.sha512",
     "/home/zenardi/.nuget/packages/microsoft.aspnetcore.jsonpatch/3.0.0/microsoft.aspnetcore.jsonpatch.3.0.0.nupkg.sha512",
     "/home/zenardi/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/3.0.0/microsoft.aspnetcore.mvc.newtonsoftjson.3.0.0.nupkg.sha512",
