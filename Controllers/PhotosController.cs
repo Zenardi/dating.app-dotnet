@@ -43,10 +43,27 @@ namespace DatingApp.Api.Controllers
             var photoFromRepo = await _repo.GetPhoto(id);
 
             var photo = _mapper.Map<PhotoForReturnDto>(photoFromRepo);
-
+            
+            if(photo.PublicId != null)
+            {
+                string fileNameS3 = photoFromRepo.Url.Split('/').Last();
+                photo.RawImage = await GetRawImage(photoFromRepo.UserId.ToString(), fileNameS3);
+            }
             return Ok(photo);
         }
 
+        private async Task<byte[]> GetRawImage(string userId, string fileName)
+        {
+            GetObjectRequest request = new GetObjectRequest()
+            {
+                Key = userId + @"/" + fileName,
+                BucketName = _awsConfig.Value.BucketName
+            };
+            var s3Object = await client.GetObjectAsync(request);
+            BinaryReader binaryReader = new BinaryReader(s3Object.ResponseStream);
+            byte[] raw = binaryReader.ReadBytes((int)s3Object.ResponseStream.Length);
+            return raw;
+        }
 
         [HttpPost]
         public async Task<IActionResult> AddPhotoForUser(int userId, [FromForm] PhotoForCreationDto photoForCreationDto)

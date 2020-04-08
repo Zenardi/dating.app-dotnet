@@ -16,5 +16,7 @@ namespace DatingApp.Api.Dtos
 
         ///this is version id from AWS
         public string PublicId{get; set;}
+
+        public byte[] RawImage { get; set; }
     }
 }
