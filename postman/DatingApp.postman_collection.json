@@ -16,7 +16,7 @@
 					{
 						"key": "Authorization",
 						"type": "text",
-						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJsb2xhIiwibmJmIjoxNTg2MzUzODI4LCJleHAiOjE1ODY0NDAyMjgsImlhdCI6MTU4NjM1MzgyOH0.5e77btOMpV_pArybLMlkuDf8SLsEHBOKnE5s5u-lcfzApYLeLTUXUyUvAPZB5RTVVyKQhum72kFbD04s5Eu7yg"
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMSIsInVuaXF1ZV9uYW1lIjoiQWRtaW4iLCJyb2xlIjpbIkFkbWluIiwiTW9kZXJhdG9yIl0sIm5iZiI6MTU4Njk3Nzc2MiwiZXhwIjoxNTg3MDY0MTYyLCJpYXQiOjE1ODY5Nzc3NjJ9.9a0k-5lKQfMUoQJWnIukURbxfwFEmr1i9NTlqlGWJsSa9LT5SgKnGo_w4VieNCYcvZynlU1SPzwJesbbE1pv7Q"
 					}
 				],
 				"url": {
@@ -29,6 +29,432 @@
 					"path": [
 						"api",
 						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Like",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJsb2xhIiwibmJmIjoxNTg2NDYxNTI0LCJleHAiOjE1ODY1NDc5MjQsImlhdCI6MTU4NjQ2MTUyNH0.RR-4Agc1D7dbxqja_Nl9nWn5ybPiL9DAq1E-q-21MS_plgTrmLoO_5e_XL1UV1GrtWQvx2p_G-uzFfpcKGtLJw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/1/like/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"like",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Message",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJsb2xhIiwibmJmIjoxNTg2NjA5MTc1LCJleHAiOjE1ODY2OTU1NzUsImlhdCI6MTU4NjYwOTE3NX0.4VKsZNN-sdoNhrThQNcNtuLQNul_wd_Gpj-v-I2C4kBmrTo4db3Zui0YTkPnIcd1-7dBNij9JaqjJO7tFS3RWA"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"recipientId\": 14,\n\t\"content\": \"test message lola to bruce 6\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/1/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Message",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJsb2xhIiwibmJmIjoxNTg2NjA5MTc1LCJleHAiOjE1ODY2OTU1NzUsImlhdCI6MTU4NjYwOTE3NX0.4VKsZNN-sdoNhrThQNcNtuLQNul_wd_Gpj-v-I2C4kBmrTo4db3Zui0YTkPnIcd1-7dBNij9JaqjJO7tFS3RWA"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"recipientId\": 14,\n\t\"content\": \"test message lola to bruce 6\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/1/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Messages For User - Inbox",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJsb2xhIiwibmJmIjoxNTg2NjA5MTc1LCJleHAiOjE1ODY2OTU1NzUsImlhdCI6MTU4NjYwOTE3NX0.4VKsZNN-sdoNhrThQNcNtuLQNul_wd_Gpj-v-I2C4kBmrTo4db3Zui0YTkPnIcd1-7dBNij9JaqjJO7tFS3RWA"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"recipientId\": 14,\n\t\"content\": \"test message lola to bruce\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/1/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsersWithRoles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMSIsInVuaXF1ZV9uYW1lIjoiQWRtaW4iLCJyb2xlIjpbIkFkbWluIiwiTW9kZXJhdG9yIl0sIm5iZiI6MTU4Njk3Nzc2MiwiZXhwIjoxNTg3MDY0MTYyLCJpYXQiOjE1ODY5Nzc3NjJ9.9a0k-5lKQfMUoQJWnIukURbxfwFEmr1i9NTlqlGWJsSa9LT5SgKnGo_w4VieNCYcvZynlU1SPzwJesbbE1pv7Q"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"recipientId\": 14,\n\t\"content\": \"test message lola to bruce\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/admin/usersWithRoles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"admin",
+						"usersWithRoles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Roles",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMSIsInVuaXF1ZV9uYW1lIjoiQWRtaW4iLCJyb2xlIjpbIkFkbWluIiwiTW9kZXJhdG9yIl0sIm5iZiI6MTU4Njg5NDczOSwiZXhwIjoxNTg2OTgxMTM5LCJpYXQiOjE1ODY4OTQ3Mzl9.g7CMVcN8hTZwVOPh4ZBfAyj9UtPQtSqwdSgfmMEvXypDWwmS2UBVx-Kv-1Jv6YbDJnHPX3Vnp6Pz3HOrn53N0w"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"roleNames\": [ \"Member\", \"Moderator\" ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/admin/editRoles/lola",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"admin",
+						"editRoles",
+						"lola"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPhotosForModeration",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxMSIsInVuaXF1ZV9uYW1lIjoiQWRtaW4iLCJyb2xlIjpbIkFkbWluIiwiTW9kZXJhdG9yIl0sIm5iZiI6MTU4Njg5NDczOSwiZXhwIjoxNTg2OTgxMTM5LCJpYXQiOjE1ODY4OTQ3Mzl9.g7CMVcN8hTZwVOPh4ZBfAyj9UtPQtSqwdSgfmMEvXypDWwmS2UBVx-Kv-1Jv6YbDJnHPX3Vnp6Pz3HOrn53N0w"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"recipientId\": 14,\n\t\"content\": \"test message lola to bruce\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/admin/photosForModeration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"admin",
+						"photosForModeration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Messages For User - Outbox",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJsb2xhIiwibmJmIjoxNTg2NjA5MTc1LCJleHAiOjE1ODY2OTU1NzUsImlhdCI6MTU4NjYwOTE3NX0.4VKsZNN-sdoNhrThQNcNtuLQNul_wd_Gpj-v-I2C4kBmrTo4db3Zui0YTkPnIcd1-7dBNij9JaqjJO7tFS3RWA"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"recipientId\": 14,\n\t\"content\": \"test message lola to bruce\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/1/messages?messageContainer=Outbox",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"messages"
+					],
+					"query": [
+						{
+							"key": "messageContainer",
+							"value": "Outbox"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Message Thread",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJsb2xhIiwibmJmIjoxNTg2NjA5MTc1LCJleHAiOjE1ODY2OTU1NzUsImlhdCI6MTU4NjYwOTE3NX0.4VKsZNN-sdoNhrThQNcNtuLQNul_wd_Gpj-v-I2C4kBmrTo4db3Zui0YTkPnIcd1-7dBNij9JaqjJO7tFS3RWA"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"recipientId\": 14,\n\t\"content\": \"test message lola to bruce\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/1/messages/thread/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"1",
+						"messages",
+						"thread",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Likes",
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJsb2xhIiwibmJmIjoxNTg2MzUzODI4LCJleHAiOjE1ODY0NDAyMjgsImlhdCI6MTU4NjM1MzgyOH0.5e77btOMpV_pArybLMlkuDf8SLsEHBOKnE5s5u-lcfzApYLeLTUXUyUvAPZB5RTVVyKQhum72kFbD04s5Eu7yg"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users?likees=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "likees",
+							"value": "true"
+						}
 					]
 				}
 			},
@@ -67,41 +493,6 @@
 						{
 							"key": "pageSize",
 							"value": "3"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Users filter by age",
-			"request": {
-				"auth": {
-					"type": "apikey"
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"type": "text",
-						"value": "Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJsb2xhIiwibmJmIjoxNTg2MzUzODI4LCJleHAiOjE1ODY0NDAyMjgsImlhdCI6MTU4NjM1MzgyOH0.5e77btOMpV_pArybLMlkuDf8SLsEHBOKnE5s5u-lcfzApYLeLTUXUyUvAPZB5RTVVyKQhum72kFbD04s5Eu7yg"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:5000/api/users?minAge=50",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"users"
-					],
-					"query": [
-						{
-							"key": "minAge",
-							"value": "50"
 						}
 					]
 				}
@@ -326,27 +717,6 @@
 			"response": []
 		},
 		{
-			"name": "Get Values Spacific",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/values/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"values",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Add User",
 			"request": {
 				"method": "POST",
@@ -383,7 +753,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"username\": \"lola\",\n\t\"password\": \"password\"\n}",
+					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"password\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
