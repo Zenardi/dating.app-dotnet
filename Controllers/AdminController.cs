@@ -1,12 +1,18 @@
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using Amazon;
+using Amazon.S3;
+using Amazon.S3.Model;
 using DatingApp.Api.Data;
 using DatingApp.Api.Dtos;
+using DatingApp.Api.Helpers;
 using DatingApp.Api.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace DatingApp.Api.Controllers
 {
@@ -14,12 +20,19 @@ namespace DatingApp.Api.Controllers
     [Route("api/[controller]")]
     public class AdminController : ControllerBase
     {
+        private static IAmazonS3 client;
         private readonly DataContext _context;
         private readonly UserManager<User> _userManager;
-        public AdminController(DataContext context, UserManager<User> userManager)
+        private readonly IOptions<AwsSettings> _awsConfig;
+        private readonly DatingRepository _repo;
+        public AdminController(DataContext context, UserManager<User> userManager, IOptions<AwsSettings> awsConfig, DatingRepository repo)
         {
+            this._repo = repo;
+            this._awsConfig = awsConfig;
             _userManager = userManager;
             _context = context;
+
+            client = new AmazonS3Client(RegionEndpoint.USWest2);
         }
 
         [Authorize(Policy = "RequireAdminRole")]
@@ -67,9 +80,91 @@ namespace DatingApp.Api.Controllers
 
         [Authorize(Policy = "ModeratePhotoRole")]
         [HttpGet("photosForModeration")]
-        public IActionResult GetPhotosForModeration()
+        public async Task<IActionResult> GetPhotosForModeration()
         {
-            return Ok("Only admins and moderators can see this");
+            var photos = await _context.Photos
+                .Include(u => u.User)
+                .IgnoreQueryFilters()
+                .Where(p => p.IsApproved == false)
+                .Select(u => new
+                {
+                    Id = u.Id,
+                    UserName = u.User.UserName,
+                    Url = u.Url,
+                    IsApproved = u.IsApproved
+                }).ToListAsync();
+
+            return Ok(photos);
+        }
+
+        [Authorize(Policy = "ModeratePhotoRole")]
+        [HttpPost("rejectPhoto/{photoId}")]
+        public async Task<IActionResult> RejectPhoto(int photoId)
+        {
+            var photo = await _context.Photos
+                .IgnoreQueryFilters()
+                .FirstOrDefaultAsync(p => p.Id == photoId);
+
+            if (photo.IsMain)
+                return BadRequest("You cannot reject the main photo");
+
+            if (photo.PublicId != null)
+            {
+
+                string fileNameS3 = _context.Photos.FirstOrDefault(x => x.Id == photoId).Url.ToString().Split(@"/").Last();
+                string key = _context.Photos.FirstOrDefault(x => x.Id == photoId).UserId + @"/" + fileNameS3;
+                ///Remove image from S3
+                DeleteObjectsRequest deleteObjectRequest = new DeleteObjectsRequest
+                {
+                    BucketName = _awsConfig.Value.BucketName
+                    //Key = userId + @"/" + newFileNameS3, // This includes the object keys and null version IDs.
+                };
+                // You can add specific object key to the delete request using the .AddKey.
+                deleteObjectRequest.AddKey(key, null);
+
+                try
+                {
+                    DeleteObjectsResponse response = await client.DeleteObjectsAsync(deleteObjectRequest);
+                    // Console.WriteLine("Successfully deleted all the {0} items", response.DeletedObjects.Count);
+                    ///DELETE FROM DB
+                    if (response.HttpStatusCode == HttpStatusCode.OK)
+                    {
+                        _repo.Delete(_context.Photos.FirstOrDefault(x => x.Id == photoId));
+                    }
+                    else
+                    {
+                        return BadRequest("Error on deleting photo.");
+                    }
+                }
+                catch (DeleteObjectsException e)
+                {
+                    return BadRequest("Error on deleting photo. " + e.Message);
+                }
+            }
+
+            if (photo.PublicId == null)
+            {
+                _context.Photos.Remove(photo);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        [Authorize(Policy = "ModeratePhotoRole")]
+        [HttpPost("approvePhoto/{photoId}")]
+        public async Task<IActionResult> ApprovePhoto(int photoId)
+        {
+            var photo = await _context.Photos
+                .IgnoreQueryFilters()
+                .FirstOrDefaultAsync(p => p.Id == photoId);
+
+            photo.IsApproved = true;
+
+            await _context.SaveChangesAsync();
+
+            return Ok();
         }
     }
 }
