@@ -1,18 +1,18 @@
-using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
+using DatingApp.Api.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using DatingApp.Api.Dtos;
+using Microsoft.AspNetCore.Identity;
+using DatingApp.Api.Models;
+using Microsoft.Extensions.Options;
+using DatingApp.Api.Helpers;
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
-using DatingApp.Api.Data;
-using DatingApp.Api.Dtos;
-using DatingApp.Api.Helpers;
-using DatingApp.Api.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
+using System.Net;
 
 namespace DatingApp.Api.Controllers
 {
@@ -24,16 +24,15 @@ namespace DatingApp.Api.Controllers
         private readonly DataContext _context;
         private readonly UserManager<User> _userManager;
         private readonly IOptions<AwsSettings> _awsConfig;
-        private readonly DatingRepository _repo;
-        public AdminController(DataContext context, UserManager<User> userManager, IOptions<AwsSettings> awsConfig, DatingRepository repo)
+        public AdminController(DataContext context, UserManager<User> userManager, IOptions<AwsSettings> awsConfig)
         {
-            this._repo = repo;
             this._awsConfig = awsConfig;
             _userManager = userManager;
             _context = context;
 
             client = new AmazonS3Client(RegionEndpoint.USWest2);
         }
+
 
         [Authorize(Policy = "RequireAdminRole")]
         [HttpGet("usersWithRoles")]
@@ -129,7 +128,7 @@ namespace DatingApp.Api.Controllers
                     ///DELETE FROM DB
                     if (response.HttpStatusCode == HttpStatusCode.OK)
                     {
-                        _repo.Delete(_context.Photos.FirstOrDefault(x => x.Id == photoId));
+                        _context.Photos.Remove(_context.Photos.FirstOrDefault(x => x.Id == photoId));
                     }
                     else
                     {
