@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "qkI8zpjypnwtGGvW26PXR2lqQkRmFo+K2NywJrGSbv3I4zm7zroiXEmV3cMzvudPClGw4CcRSeLC/qiFwqIz6Q==",
+  "dgSpecHash": "Cwp/yg3swY6IjED8tlARwtbjBHC/bKqW1t9EXJm0r1N2Kg5eceCLGLznEgRHrUQqsc/PbARypYkO9aSYiHS+SQ==",
   "success": true,
   "projectFilePath": "/home/zenardi/Develop/DatingApp/DatingApp.Api/DatingApp.Api.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,9 @@
     "/home/zenardi/.nuget/packages/awssdk.s3/3.5.0-beta/awssdk.s3.3.5.0-beta.nupkg.sha512",
     "/home/zenardi/.nuget/packages/castle.core/4.4.0/castle.core.4.4.0.nupkg.sha512",
     "/home/zenardi/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/3.0.0/microsoft.aspnetcore.authentication.jwtbearer.3.0.0.nupkg.sha512",
+    "/home/zenardi/.nuget/packages/microsoft.aspnetcore.cryptography.internal/3.1.3/microsoft.aspnetcore.cryptography.internal.3.1.3.nupkg.sha512",
+    "/home/zenardi/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/3.1.3/microsoft.aspnetcore.cryptography.keyderivation.3.1.3.nupkg.sha512",
+    "/home/zenardi/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/3.1.3/microsoft.aspnetcore.identity.entityframeworkcore.3.1.3.nupkg.sha512",
     "/home/zenardi/.nuget/packages/microsoft.aspnetcore.jsonpatch/3.0.0/microsoft.aspnetcore.jsonpatch.3.0.0.nupkg.sha512",
     "/home/zenardi/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/3.0.0/microsoft.aspnetcore.mvc.newtonsoftjson.3.0.0.nupkg.sha512",
     "/home/zenardi/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.0/microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
@@ -35,6 +38,8 @@
     "/home/zenardi/.nuget/packages/microsoft.extensions.dependencyinjection/3.1.3/microsoft.extensions.dependencyinjection.3.1.3.nupkg.sha512",
     "/home/zenardi/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/3.1.3/microsoft.extensions.dependencyinjection.abstractions.3.1.3.nupkg.sha512",
     "/home/zenardi/.nuget/packages/microsoft.extensions.dependencymodel/3.1.3/microsoft.extensions.dependencymodel.3.1.3.nupkg.sha512",
+    "/home/zenardi/.nuget/packages/microsoft.extensions.identity.core/3.1.3/microsoft.extensions.identity.core.3.1.3.nupkg.sha512",
+    "/home/zenardi/.nuget/packages/microsoft.extensions.identity.stores/3.1.3/microsoft.extensions.identity.stores.3.1.3.nupkg.sha512",
     "/home/zenardi/.nuget/packages/microsoft.extensions.logging/3.1.3/microsoft.extensions.logging.3.1.3.nupkg.sha512",
     "/home/zenardi/.nuget/packages/microsoft.extensions.logging.abstractions/3.1.3/microsoft.extensions.logging.abstractions.3.1.3.nupkg.sha512",
     "/home/zenardi/.nuget/packages/microsoft.extensions.options/3.1.3/microsoft.extensions.options.3.1.3.nupkg.sha512",
